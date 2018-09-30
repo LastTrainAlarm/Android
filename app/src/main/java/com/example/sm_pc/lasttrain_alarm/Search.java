@@ -141,7 +141,7 @@ public class Search extends AppCompatActivity implements OnMapReadyCallback,Goog
     }
     public void  getNearList() {
 
-        Call<NearStaionResponse> keyword= networkService.getNearStaionList(token,(float)currentLatLng.latitude,(float)currentLatLng.longitude);
+        Call<NearStaionResponse> keyword= networkService.getNearStaionList(CommonData.INSTANCE.getToken(),(float)currentLatLng.latitude,(float)currentLatLng.longitude);
 
         keyword.enqueue(new Callback<NearStaionResponse>() {
             @Override

@@ -63,12 +63,13 @@ class Search_departure : AppCompatActivity() {
         search = findViewById(R.id.search)
         favorite_list = findViewById(R.id.station_list)
         adapter = CustomStationData()
+        getList()
 
         search!!.setOnClickListener(View.OnClickListener {
             //getList()
             var keyword: String = name!!.text!!.toString()
 
-            var getContentList = networkService!!.getSearchList(token, keyword)
+            var getContentList = networkService!!.getSearchList(CommonData.token, keyword)
 
             getContentList!!.enqueue(object : Callback<SearchStationResponse> {
                 override fun onResponse(call: Call<SearchStationResponse>?, response: Response<SearchStationResponse>?) {
@@ -120,9 +121,11 @@ class Search_departure : AppCompatActivity() {
                                     })
 
                                 })
+                                //도착역 지정
                                 btn2.setOnClickListener(View.OnClickListener {
                                     alertDialog.cancel()
                                     val intent = Intent(this@Search_departure, Search_arrival::class.java)
+                                    intent.putExtra("depart_name",searchList!!.get(0).station_name)
                                     startActivity(intent)
                                 })
                                 btn1.setOnClickListener(View.OnClickListener {
@@ -159,13 +162,16 @@ class Search_departure : AppCompatActivity() {
         val keyword= networkService!!.getFavoriteList(token)
         keyword!!.enqueue(object : Callback<GetFavoriteResponse> {
             override fun onResponse(call: Call<GetFavoriteResponse>?, response: Response<GetFavoriteResponse>?) {
-
+                Log.d("즐찾보기","통신성공")
                 if (response!!.isSuccessful) {
                     if (response.body().message.equals("Successfully get favorite station")) {
-                        val station = GetStationData()
                         favoriteStation = response.body().data
-                        for (i: Int ?=0; i<favoriteStation!!.size;i++){
-
+                        for (i in 0 until favoriteStation!!.size){
+                            val station = GetStationData()
+                            station.favorite = R.drawable.favorite_star_fill
+                            station.content = favoriteStation!!.get(i).station_name
+                            adapter!!.addItem(station)
+                            favorite_list!!.setAdapter(adapter)
                         }
                     }
                 } else {
