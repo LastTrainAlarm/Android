@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="30dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#031025">
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/favorite_star_empty"/>
+    <TextView
+        android:id="@+id/station_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/favorite"
+        android:text="역곡역"
+        android:textColor="#ffffff"
+        android:textSize="22.3sp"/>
+
+</RelativeLayout>

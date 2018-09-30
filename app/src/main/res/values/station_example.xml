@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="resId">
+        <item>@drawable/favorite_star_empty</item>
+        <item>@drawable/favorite_star_fill</item>
+        <item>@drawable/favorite_star_empty</item>
+    </integer-array>
+
+
+    <string-array name="content">
+        <item>역곡역</item>
+        <item>사당역</item>
+        <item>강남역</item>
+    </string-array>
+</resources>

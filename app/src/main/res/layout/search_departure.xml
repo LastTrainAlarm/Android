@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:background="#031025">
+    <ImageView
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="18dp"
+        android:layout_width="186dp"
+        android:layout_height="40dp"
+        android:background="@drawable/departure_name"
+        />
+
+    <LinearLayout
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="261dp"
+            android:layout_height="42dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/search_big" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/search_icon" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/search_nearstaion"
+        android:layout_marginTop="15dp"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:background="@drawable/near_station"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/station_list"></ListView>
+
+
+</LinearLayout>
